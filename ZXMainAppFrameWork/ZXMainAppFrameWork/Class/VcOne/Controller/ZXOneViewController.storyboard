@@ -14,28 +14,28 @@
                         <viewControllerLayoutGuide type="bottom" id="rdh-3M-IhK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BzE-bY-MBK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rha-XV-eaI">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
-                            </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="5" translatesAutoresizingMaskIntoConstraints="NO" id="zDY-GQ-vvY">
-                                <rect key="frame" x="276" y="119" width="99" height="37"/>
+                                <rect key="frame" x="276" y="101" width="99" height="37"/>
                             </pageControl>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rha-XV-eaI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="151"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="5Q5-3V-KPh"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="pageControl" destination="zDY-GQ-vvY" id="h88-4Z-BfK"/>
-                        <outlet property="scrollView" destination="Rha-XV-eaI" id="HuX-i0-Hty"/>
+                        <outlet property="pageControl" destination="zDY-GQ-vvY" id="brx-yY-H0y"/>
+                        <outlet property="scrollView" destination="Rha-XV-eaI" id="Ky6-oE-K3h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pql-Au-VRa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-67.5" y="239.5"/>
+            <point key="canvasLocation" x="-412" y="141"/>
         </scene>
     </scenes>
 </document>

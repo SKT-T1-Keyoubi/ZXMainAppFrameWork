@@ -19,6 +19,9 @@
 		402E7C8A1C538E8700769A78 /* ZXTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E7C891C538E8700769A78 /* ZXTwoViewController.m */; };
 		402E7C8D1C538E9600769A78 /* ZXFourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 402E7C8C1C538E9600769A78 /* ZXFourViewController.m */; };
 		402E7C951C53C1DC00769A78 /* ZXOneViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 402E7C941C53C1DC00769A78 /* ZXOneViewController.storyboard */; };
+		40A83A331C5477CB008B4C71 /* ZXTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A83A311C5477CB008B4C71 /* ZXTableViewCell.m */; };
+		40A83A341C5477CB008B4C71 /* ZXTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40A83A321C5477CB008B4C71 /* ZXTableViewCell.xib */; };
+		40A83A391C54CA3B008B4C71 /* ZX3DTouchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40A83A381C54CA3B008B4C71 /* ZX3DTouchViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,11 @@
 		402E7C8B1C538E9600769A78 /* ZXFourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXFourViewController.h; sourceTree = "<group>"; };
 		402E7C8C1C538E9600769A78 /* ZXFourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXFourViewController.m; sourceTree = "<group>"; };
 		402E7C941C53C1DC00769A78 /* ZXOneViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ZXOneViewController.storyboard; sourceTree = "<group>"; };
+		40A83A301C5477CB008B4C71 /* ZXTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZXTableViewCell.h; sourceTree = "<group>"; };
+		40A83A311C5477CB008B4C71 /* ZXTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZXTableViewCell.m; sourceTree = "<group>"; };
+		40A83A321C5477CB008B4C71 /* ZXTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ZXTableViewCell.xib; sourceTree = "<group>"; };
+		40A83A371C54CA3B008B4C71 /* ZX3DTouchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZX3DTouchViewController.h; sourceTree = "<group>"; };
+		40A83A381C54CA3B008B4C71 /* ZX3DTouchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZX3DTouchViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +199,8 @@
 				402E7C821C538E6700769A78 /* ZXOneViewController.h */,
 				402E7C831C538E6700769A78 /* ZXOneViewController.m */,
 				402E7C941C53C1DC00769A78 /* ZXOneViewController.storyboard */,
+				40A83A371C54CA3B008B4C71 /* ZX3DTouchViewController.h */,
+				40A83A381C54CA3B008B4C71 /* ZX3DTouchViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -205,6 +215,9 @@
 		402E7C731C538CDC00769A78 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				40A83A301C5477CB008B4C71 /* ZXTableViewCell.h */,
+				40A83A311C5477CB008B4C71 /* ZXTableViewCell.m */,
+				40A83A321C5477CB008B4C71 /* ZXTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -335,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				402E7C601C538AC800769A78 /* LaunchScreen.storyboard in Resources */,
+				40A83A341C5477CB008B4C71 /* ZXTableViewCell.xib in Resources */,
 				402E7C5D1C538AC800769A78 /* Assets.xcassets in Resources */,
 				402E7C951C53C1DC00769A78 /* ZXOneViewController.storyboard in Resources */,
 				402E7C5B1C538AC800769A78 /* Main.storyboard in Resources */,
@@ -355,7 +369,9 @@
 				402E7C8A1C538E8700769A78 /* ZXTwoViewController.m in Sources */,
 				402E7C551C538AC800769A78 /* AppDelegate.m in Sources */,
 				402E7C8D1C538E9600769A78 /* ZXFourViewController.m in Sources */,
+				40A83A391C54CA3B008B4C71 /* ZX3DTouchViewController.m in Sources */,
 				402E7C521C538AC700769A78 /* main.m in Sources */,
+				40A83A331C5477CB008B4C71 /* ZXTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +482,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ZXMainAppFrameWork/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhangxin.ZXMainAppFrameWork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -477,6 +494,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ZXMainAppFrameWork/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zhangxin.ZXMainAppFrameWork;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -502,6 +520,7 @@
 				402E7C661C538AC800769A78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

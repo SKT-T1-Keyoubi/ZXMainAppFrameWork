@@ -7,22 +7,112 @@
 //
 
 #import "ZXOneViewController.h"
-@interface ZXOneViewController()<UIScrollViewDelegate>
+#import "ZXTableViewCell.h"
+#import "ZX3DTouchViewController.h"
+#define tabBarHeight self.tabBarController.tabBar.frame.size.height
+
+@interface ZXOneViewController()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate,UIViewControllerPreviewingDelegate>
+{
+    UILongPressGestureRecognizer * _longPress;
+}
+@property (weak, nonatomic) UITableViewCell * cellTwo;
+@property (weak, nonatomic) UITableView * tableView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @end
 @implementation ZXOneViewController
+ZXTableViewCell *  cellOne;
 NSTimer * timer;
+-(void)viewWillAppear:(BOOL)animated{
+    //[super viewWillAppear:animated];
+//    _cellOne = cellOne;
+    [self check3DTouch];
+}
 -(void)viewDidLoad{
     [super viewDidLoad];
+    //创建长按手势识别器
+    UILongPressGestureRecognizer * longPressGr = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:nil];
+    _longPress = longPressGr;
+    //首页图片循环播放
+    NSLog(@"%f",tabBarHeight);
     [self addScrollViewImage];
+    [self addTableView];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"Love" style:UIBarButtonItemStylePlain target:self action:nil];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{UITextAttributeTextColor:[UIColor whiteColor]}];
+
     
+}
+- (void)check3DTouch{
+    if (self.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable) {
+        [self registerForPreviewingWithDelegate:self sourceView:self.scrollView];
+        _longPress.enabled = NO;
+        NSLog(@"3D touch 开启");
+    }else{
+        _longPress.enabled = YES;
+    }
+}
+- (void)addTableView{
+    CGRect frame = CGRectMake(0, 156, self.view.frame.size.width, self.view.frame.size.height - 263);
+    //创建一个tableView
+    UITableView * tableView = [[UITableView alloc]initWithFrame:frame style:UITableViewStylePlain];
+    //设置数据源方法和代理
+    tableView.dataSource = self;
+    tableView.delegate = self;
+    //垂直滚动的条设置为隐藏
+    tableView.showsVerticalScrollIndicator = NO;
+    _tableView = tableView;
+    [self.view addSubview:tableView];
+}
+#pragma mark - 3D touch代理方法
+//轻按进入浮动预览页面
+-(UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location{
+    ZX3DTouchViewController * vc = [[ZX3DTouchViewController alloc]init];
+    return vc;
+}
+
+#pragma mark - tableView的数据源方法
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 15;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString * ID = @"cell";
+   cellOne = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cellOne == nil) {
+//        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+        cellOne = [[[NSBundle mainBundle] loadNibNamed:@"ZXTableViewCell" owner:self options:nil]lastObject];
+    }
+    cellOne.imageView1.image = [UIImage imageNamed:@"girl2"];
+    //cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    //cell.titleLabel.text = @"今日新闻";
+   // cell.detailLabel.text = @"今天天气非常不错";
+    self.cellTwo = cellOne;
+    return cellOne;
+    
+}
+#pragma mark - tableView的代理方法
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.tableView deselectRowAtIndexPath:[_tableView indexPathForSelectedRow] animated:YES];
+    NSString * msg = [NSString stringWithFormat:@"这是第%ld行",(long)indexPath.row];
+    UIAlertController * alert = [UIAlertController alertControllerWithTitle:@"提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction * cancle = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    UIAlertAction * submit = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:cancle];
+    [alert addAction:submit];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 90;
 }
 #pragma mark - 实现图片轮播的效果
 - (void)addScrollViewImage{
     int count = 5;
     //scrollView框的大小
     CGSize size = self.scrollView.frame.size;
+    NSLog(@"%f",size.height);
     for (int i = 0; i < count; i++) {
         //创建imageView
         UIImageView * imageView = [[UIImageView alloc]init];

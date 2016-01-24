@@ -17,13 +17,14 @@
 
 #pragma mark - 添加四个子控制器
 - (void)setUpChildController{
+    //采用sb的模式设计界面
     UIStoryboard * storyBoard = [UIStoryboard storyboardWithName:@"ZXOneViewController" bundle:nil];
     ZXOneViewController * oneVc = [storyBoard instantiateInitialViewController];
     [self setUpNavigationController:oneVc title:@"首页" image:@"Circle_MyCircleHeader" tabBarItemImage:@"tabbar_home"];
     ZXTwoViewController * twoVc = [[ZXTwoViewController alloc]init];
-    [self setUpNavigationController:twoVc title:@"排行" image:@"Circle_MyCircleHeader" tabBarItemImage:@"tabbar_message_center"];
+    [self setUpNavigationController:twoVc title:@"消息" image:@"Circle_MyCircleHeader" tabBarItemImage:@"tabbar_message_center"];
     ZXThreeViewController * threeVc = [[ZXThreeViewController alloc]init];
-    [self setUpNavigationController:threeVc title:@"消息" image:@"Circle_MyCircleHeader" tabBarItemImage:@"tabbar_discover"];
+    [self setUpNavigationController:threeVc title:@"发现" image:@"Circle_MyCircleHeader" tabBarItemImage:@"tabbar_discover"];
     ZXFourViewController * fourVc = [[ZXFourViewController alloc]init];
     [self setUpNavigationController:fourVc title:@"我的" image:@"Circle_MyCircleHeader" tabBarItemImage:@"tabbar_profile"];
 
